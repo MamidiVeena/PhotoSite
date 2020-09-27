@@ -1,0 +1,27 @@
+<body align="center">
+
+<% @photos.each do |photo| %>
+  <div>
+    <%= image_tag photo.file_name %>
+    </br>
+    Photo Posted on
+    <%= photo.date_time %>
+
+    <h2>Comments:</h2>
+    <% @comments.each do |comment| %>
+      <div>
+        <li>
+          <% @user = User.find(comment.user_id) %>
+          <b><%= @user.first_name %></b>
+          <%= comment.comment_text %>
+          -- Posted By:
+          <% @user = User.find(comment.user_id) %>
+          <%= link_to @user.first_name, {action: "index", :id => @user.id} %> <%= @user.last_name %>
+          on
+          <%= comment.date_time %>
+        </li>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</body>
