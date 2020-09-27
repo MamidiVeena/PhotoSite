@@ -1,5 +1,5 @@
 FROM ruby:2.7.1
-MAINTAINER sasati2@horizon.csueastbay.edu
+MAINTAINER vmamidi2@horizon.csueastbay.edu
 
 
 RUN apt-get update && apt-get install -y nodejs build-essential
